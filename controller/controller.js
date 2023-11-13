@@ -74,17 +74,21 @@ const addArtist=async (req,res)=>{
         ]
     }
     //console.log(dummy)
-    //let newArtist=new artist(dummy);
-    //newArtist.save().then(()=>{
-        //res.send("Successfully created artist");
-    //})
+    let newArtist=new artist(req.body);
+    newArtist.save().then(()=>{
+        res.send("Successfully created artist");
+    })
 }
 const getArtist=async (req,res)=>{
     console.log(req.params.name)
     let results=await artist.find({artistName:req.params.name})
     res.json(results)
 }
-
+const getAll=async (req,res)=>{
+    let res1=await artist.find({})
+    res.json(res1);
+}
 
 exports.addArtist=addArtist;
 exports.getArtist=getArtist;
+exports.getAll=getAll;

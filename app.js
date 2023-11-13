@@ -8,7 +8,7 @@ const dotenv=require('dotenv').config()
 app.use(express.static('public'))
 app.use(express.urlencoded())
 app.use(express.json())
-mongoose.connect(process.env.URL).then(()=>{
+mongoose.connect(process.env.onURL).then(()=>{
     console.log("Successfully connected");
 })
 
